@@ -10,6 +10,8 @@ export default function Forecast() {
         <div className="row weatherForecast" />
       </div>
 
+      <br/>
+
       <h3>Daily temperature</h3>
       <div className="forecast">
         <div className="row weatherForecast" />

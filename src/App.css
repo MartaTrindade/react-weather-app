@@ -1,7 +1,7 @@
 /*Header*/
 .App-header {
   background-color: #282c34;
-  min-height: 10vh;
+  min-height: 5vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,6 +29,15 @@ li {
 /*Location*/
 form {
   text-align: left;
+  padding: 0;
+  max-width: 450px;
+}
+.btn-dark {
+  border-radius: 4px;
+  background: #282c34;
+}
+.btn-light {
+  border-radius: 4px;
 }
 .fas {
   font-size: 20px;
@@ -42,7 +51,7 @@ form {
 
 /*Footer*/
 footer {
-  color: #61dafb;
+  color: #282c34;
 }
 
 .App-logo {

@@ -16,12 +16,13 @@ function App() {
         <Location />
         <Weather />
         <Forecast />
+        <br/>
         <footer>
-          <img src={logo} className="App-logo" alt="logo" />
-          <small>Coded by <a href="https://www.linkedin.com/in/marta-trindade-ap/" className="refLindedin" target="_blank">Marta Trindade</a> {" "}
-            and is <a href="https://github.com/MartaTrindade/react-weather-app" className="refGithub" target="_blank">open-sourced on GitHub</a> {" "}
-            and hosted on <a href="https://www.netlify.com/" className="refHost" target="_blank">Netlify</a>
+          <small>Coded by <a href="https://www.linkedin.com/in/marta-trindade-ap/" target="_blank">Marta Trindade</a> {" "}
+            and is <a href="https://github.com/MartaTrindade/react-weather-app" target="_blank">open-sourced on GitHub</a> {" "}
+            and hosted on <a href="https://www.netlify.com/" target="_blank">Netlify</a>
           </small>
+          <img src={logo} className="App-logo" alt="logo" />
         </footer>
       </div>
     </div>

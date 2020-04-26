@@ -27,10 +27,13 @@ export default function Weather (props) {
     <div className="weather">
       <div className="currentWeather">
         <div className="row">
-          <div className="col-3">
-            <img src={weatherData.imgUrl} alt={weatherData.description} /><span className="currentMaxMin">{weatherData.maxTemperature}ºC/{weatherData.minTemperature}ºC</span>
+          <div className="col-6">
+            <ul>
+              <li><img src={weatherData.imgUrl} alt={weatherData.description} /></li>
+              <li><span className="currentMaxMin">{weatherData.maxTemperature}ºC/{weatherData.minTemperature}ºC</span></li>
+            </ul>
           </div>
-          <div className="col-4">
+          <div className="col-6">
             <ul>
               <li className="temperature">{weatherData.temperature} <span className="units"><a href="/" className="active"> ºC</a> | <a href="/"> ºF</a></span>
               </li>
