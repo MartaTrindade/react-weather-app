@@ -1,0 +1,25 @@
+/*Selected location current weather*/
+.currentWeather {
+  padding: 5px;
+  margin: 5px auto;
+  max-width: 400px;
+  border-radius: 10px;
+}
+
+.temperature {
+  font-size: 40px;
+  font-weight: 600;
+}
+.units {
+  font-size: 20px;
+  position: relative;
+  top: -18px;
+}
+.weatherDescription {
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.weatherDetails {
+  font-size: 12px;
+}

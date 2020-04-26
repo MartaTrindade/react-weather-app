@@ -1,0 +1,17 @@
+/*Forecast*/
+.forecastAPI {
+  padding: 0;
+  margin: 20px auto;
+  max-width: 600px;
+  text-align: left;
+}
+.forecast {
+  border: 1px solid #90a4ae;
+  padding: 10px;
+  margin: 15px auto;
+  max-width: 600px;
+  border-radius: 10px;
+}
+.weatherForecast {
+  font-size: 14px;
+}
