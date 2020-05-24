@@ -6,7 +6,7 @@ import Forecast from "./Forecast";
 
 import './App.css';
 
-function App() {
+export default function App() {
   return (
     <div className="App">
       <header className="App-header">
@@ -22,11 +22,9 @@ function App() {
             and is <a href="https://github.com/MartaTrindade/react-weather-app" target="_blank">open-sourced on GitHub</a> {" "}
             and hosted on <a href="https://www.netlify.com/" target="_blank">Netlify</a>
           </small>
-          <img src={logo} className="App-logo" alt="logo" />
+          <small><br />Coded with React <img src={logo} className="App-logo" alt="logo" /></small>  
         </footer>
       </div>
     </div>
   );
 }
-
-export default App;
