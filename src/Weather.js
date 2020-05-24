@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import locationData from "./Location";
+import Location from "./Location";
 
 import "./Weather.css";
 
@@ -8,10 +8,10 @@ export default function Weather (props) {
   const [weatherData, setWeatherData] = useState({ready: false});
   
   function searchCity (response) {
-    console.log(response.data);
     setWeatherData({
       ready: true,
       city: response.data.name,
+      date: new Date(response.data.dt*1000),
       temperature: Math.round(response.data.main.temp),
       description: response.data.weather[0].description,
       iconUrl: "https://openweathermap.org/img/wn/03d@2x.png",
@@ -25,6 +25,7 @@ export default function Weather (props) {
   if (weatherData.ready) {
     return (
       <div className="weather">
+        <Location date={weatherData.date} />
         <div className="currentWeather">
           <div className="row">
             <div className="col-6">
@@ -48,8 +49,7 @@ export default function Weather (props) {
     )
   } else {
     const apiKey = "2e83a4b7ba2b243a8588825e9765fe5a";
-    let city = "Porto";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(searchCity);
     
     return (

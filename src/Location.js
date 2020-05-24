@@ -1,46 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import "./App.css";
 
-export default function Location() {
-  //  //⏰Current Date
-  //function formatDate(date) {
-  //  let dateDay = date.getDate();
-  //  let hour = date.getHours();if (hour < 10) {
-  //    hour = `0${hour}`;
-  //  }
-  //  let minute = date.getMinutes();
-  //  if (minute < 10) {
-  //    minute = `0${minute}`;
-  //  }
-  //  let days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-  //  let day = days[date.getDay()];
-  //  let months = ["January","February","March","April","May","June","July","August","Setptember","October","November","December"];
-  //  let month = months[date.getMonth()];
-  //  let year = date.getFullYear();
-//
-  //  return `${day}, ${dateDay} ${month} ${year} ${hour}:${minute}`;
-  //}
-  ////🕐Last updated
-  //function formatLastUpdated (timestamp) {
-  //  let updateDate = new Date(timestamp);
-  //  let hours = updateDate.getHours();
-  //  if (hours < 10) {
-  //    hours = `0${hours}`;
-  //  }
-  //  let minutes = updateDate.getMinutes();
-  //  if (minutes < 10) {
-  //    minutes = `0${minutes}`;
-  //  }
-//
-  //  return `${hours}:${minutes}`;
-  //}
+export default function Location(props) {
+  let days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  let day = days[props.date.getDay()];
+  let dateDay = props.date.getDate();
+  let months = ["January","February","March","April","May","June","July","August","Setptember","October","November","December"];
+  let month = months[props.date.getMonth()];
+  let year = props.date.getFullYear();
+  
+  //⏰Machine timestamp
+  const [clock, setClock] = useState(new Date());
+  const clockDate = `${clock.getHours()}:${clock.getMinutes()}:${clock.getSeconds()}`;
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setClock(new Date());
+    }, 1000);
+    return () => {
+      clearInterval(intervalId);
+    };
+  });
 
-  let locationData = {
-    city: "Porto",
-    date: "Saturday, 25 April 2020 18:00",
-    lastUpdated: "17:00"
-  };
+  //API timestamp
+  let hours = props.date.getHours();
+    if (hours < 10) {
+      hours = `0${hours}`;
+    }
+  let minutes = props.date.getMinutes();
+    if (minutes < 10) {
+      minutes = `0${minutes}`;
+    }
+  
   return (
     <div className="location">
       <form className="searchform">
@@ -51,9 +42,9 @@ export default function Location() {
       <br />
       <h2>
         <ul>
-          <li><i className="fas fa-map-marker-alt" />{" "}<span>{locationData.city}</span></li>
-          <li><span>{locationData.date}</span></li>
-          <li><span className="last-updated">Last updated: {locationData.lastUpdated}</span></li>
+          <li><i className="fas fa-map-marker-alt" />{" "}<span>{props.city}</span></li>
+          <li><span>{day}, {dateDay} {month} {year} {clockDate}</span></li>
+          <li><span className="last-updated">Last updated: {hours}:{minutes}</span></li>
         </ul>
       </h2>
     </div>

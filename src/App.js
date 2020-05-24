@@ -13,8 +13,7 @@ export default function App() {
         <h1>React Weather App</h1>
       </header>
       <div className="container">
-        <Location />
-        <Weather />
+        <Weather defaultCity="Porto"/>
         <Forecast />
         <br/>
         <footer>
