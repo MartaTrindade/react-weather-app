@@ -44,9 +44,9 @@ export default function Location() {
   return (
     <div className="location">
       <form className="searchform">
-        <input type="form" className="searchLocation" placeholder="Location" autoComplete="off" />
-        <button type="submit" className="btn-dark">Search</button>
-        <button type="Current Location" className="btn-light">Current Location</button>
+          <input type="form" className="location" placeholder="Location" autoComplete="off" autoFocus="on" />
+          <button type="submit" className="btn-dark">Search</button>
+          <button type="Current Location" className="btn-light">Current Location</button>
       </form>
       <br />
       <h2>
