@@ -32,6 +32,10 @@ export default function Location(props) {
       minutes = `0${minutes}`;
     }
   
+  //Search city
+
+  //Current location
+
   return (
     <div className="location">
       <form className="searchform">
