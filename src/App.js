@@ -1,7 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
 import Location from "./Location";
-import Forecast from "./Forecast";
 
 import './App.css';
 
@@ -13,7 +12,6 @@ export default function App() {
       </header>
       <div className="container">
         <Location defaultCity="Porto"/>
-        <Forecast />
         <br/>
         <footer>
           <small>Coded by <a href="https://www.linkedin.com/in/marta-trindade-ap/" target="_blank">Marta Trindade</a> {" "}

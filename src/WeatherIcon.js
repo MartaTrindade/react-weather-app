@@ -1,8 +1,28 @@
 import React from "react";
 import ReactAnimatedWeather from "react-animated-weather";
+//import { GenIcon } from "weather-icons-react";
 
 export default function WeatherIcon(props) {
   const codeMapping = {
+    //"01d": "WiDaySunny",
+    //"01n": "WiMoonFull",
+    //"02d": "WiDaySunnyOvercast",
+    //"02n": "WiNightAltCloudy",
+    //"03d": "WiCloud",
+    //"03n": "WiNightAltCloudy",
+    //"04d": "WiCloudy",
+    //"04n": "WiCloudy",
+    //"09d": "WiDayShowers",
+    //"09n": "WiNightAltHail",
+    //"10d": "WiDayRain",
+    //"10n": "WiNightAltRainMix",
+    //"11d": "WiDayLightning",
+    //"11n": "WiNightAltLightning",
+    //"13d": "WiDaySnow",
+    //"13n": "WiNightSnow",
+    //"50d": "WiDayFog",
+    //"50n": "WiNightFog"
+    
     "01d": "CLEAR_DAY",
     "01n": "CLEAR_NIGHT",
     "02d": "PARTLY_CLOUDY_DAY",
@@ -26,9 +46,15 @@ export default function WeatherIcon(props) {
   return (
     <ReactAnimatedWeather
       icon={codeMapping[props.code]}
-      color="#1e1e1e"
+      color="#61dafb"
       size={80}
       animate={true}
     />
+
+    //<GenIcon
+    //icon={codeMapping[props.code]}
+    //size={80}
+    //color='#045D8D'
+    ///>
   );
 }
