@@ -17,7 +17,7 @@ export default function Location(props) {
       date: new Date(response.data.dt*1000),
       temperature: Math.round(response.data.main.temp),
       description: response.data.weather[0].description,
-      iconUrl: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`,
+      icon: response.data.weather[0].icon,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
       maxTemperature: Math.round(response.data.main.temp_max),

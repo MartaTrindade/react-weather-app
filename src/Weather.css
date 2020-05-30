@@ -6,21 +6,10 @@
   border-radius: 10px;
 }
 
-.row .col-6,
-.row {
-  text-align: center;
-}
-
-img {
-  position: relative;
-  width: 90%;
-  top: -20px;
-}
 .currentMaxMin {
   font-size: 18px;
   font-weight: 400;
-  position: relative;
-  top: -60px;
+  text-align: center;
 }
 .temperature {
   font-size: 40px;
