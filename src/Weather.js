@@ -1,59 +1,35 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import Location from "./Location";
-
+import React from 'react';
+import FormattedDate from "./FormattedDate";
 import "./Weather.css";
 
 export default function Weather (props) {
-  const [weatherData, setWeatherData] = useState({ready: false});
-  
-  function searchCity (response) {
-    setWeatherData({
-      ready: true,
-      city: response.data.name,
-      date: new Date(response.data.dt*1000),
-      temperature: Math.round(response.data.main.temp),
-      description: response.data.weather[0].description,
-      iconUrl: "https://openweathermap.org/img/wn/03d@2x.png",
-      humidity: response.data.main.humidity,
-      wind: response.data.wind.speed,
-      maxTemperature: Math.round(response.data.main.temp_max),
-      minTemperature: Math.round(response.data.main.temp_min)
-    });
-  }
-
-  if (weatherData.ready) {
-    return (
-      <div className="weather">
-        <Location date={weatherData.date} />
-        <div className="currentWeather">
-          <div className="row">
-            <div className="col-6">
-              <ul>
-                <li><img src={weatherData.iconUrl} alt={weatherData.description} /></li>
-                <li><span className="currentMaxMin">{weatherData.maxTemperature}ºC/{weatherData.minTemperature}ºC</span></li>
-              </ul>
-            </div>
-            <div className="col-6">
-              <ul>
-                <li className="temperature">{weatherData.temperature} <span className="units"><a href="/" className="active"> ºC</a> | <a href="/"> ºF</a></span>
-                </li>
-                <li className="weatherDescription">{weatherData.description}</li>
-                <li className="weatherDetails">Humidity: {weatherData.humidity}%</li>
-                <li className="weatherDetails">Wind: {weatherData.wind} Km/h</li>
-              </ul>
-            </div>
+  return (
+    <div className="weather">
+      <h2>
+        <ul>
+          <li><i className="fas fa-map-marker-alt" />{" "}<span>{props.data.city}</span></li>
+          <FormattedDate date={props.data.date} />
+        </ul>
+      </h2>
+      <div className="currentWeather">
+        <div className="row">
+          <div className="col-6">
+            <ul>
+              <li><img src={props.data.iconUrl} alt={props.data.description} /></li>
+              <li><span className="currentMaxMin">{props.data.maxTemperature}ºC/{props.data.minTemperature}ºC</span></li>
+            </ul>
+          </div>
+          <div className="col-6">
+            <ul>
+              <li className="temperature">{props.data.temperature} <span className="units"><a href="/" className="active"> ºC</a> | <a href="/"> ºF</a></span>
+              </li>
+              <li className="weatherDescription">{props.data.description}</li>
+              <li className="weatherDetails">Humidity: {props.data.humidity}%</li>
+              <li className="weatherDetails">Wind: {props.data.wind} Km/h</li>
+            </ul>
           </div>
         </div>
       </div>
-    )
-  } else {
-    const apiKey = "2e83a4b7ba2b243a8588825e9765fe5a";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(searchCity);
-    
-    return (
-      <div><strong>Loading...</strong></div>
-    )
-  }
+    </div>
+  )
 }

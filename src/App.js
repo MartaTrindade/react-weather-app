@@ -1,7 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
 import Location from "./Location";
-import Weather from "./Weather";
 import Forecast from "./Forecast";
 
 import './App.css';
@@ -13,7 +12,7 @@ export default function App() {
         <h1>React Weather App</h1>
       </header>
       <div className="container">
-        <Weather defaultCity="Porto"/>
+        <Location defaultCity="Porto"/>
         <Forecast />
         <br/>
         <footer>
