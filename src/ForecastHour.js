@@ -1,4 +1,3 @@
-  
 import React from "react";
 import WeatherIcon from "./WeatherIcon";
 
@@ -16,10 +15,10 @@ export default function ForecastHour(props) {
   }
 
   return (
-    <div className="WeatherForecastPreview col">
-      {hours()}
-      <WeatherIcon code={props.data.weather[0].icon} />
-      {temperature()}
+    <div className="col-2">
+      <li>{hours()}</li>
+      <li><WeatherIcon code={props.data.weather[0].icon} /></li>
+      <li>{temperature()}</li>
     </div>
   );
 }

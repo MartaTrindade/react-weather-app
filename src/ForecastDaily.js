@@ -1,74 +1,50 @@
-import React, { useState } from "react";
+import React from "react";
 import WeatherIcon from "./WeatherIcon";
 
-import "./Forecast.css";
 
-export default function Forecast(props) {
-  const [loaded, setLoaded] = useState(false);
-  const [forecast, setForecast] = useState(null);
-
-  //⌛Hourly Forecast
-  function dispalyHourlyForecast() {
+export default function ForecastHour(props) {
+  function hours() {
     let date = new Date(props.data.dt * 1000);
-    let hours = date.getHours();
-    
-    for (let index = 0; index < 6; index++) {
-      return (
-        <div class="col-2">
-        <li class="weatherForecast">${formatLastUpdated(forecast.dt * 1000)}</li>
-        <li><WeatherIcon code={props.data.weather[0].icon} /></li>
-        <li class="weatherForecast">${Math.round(forecast.main.temp_max)}º/${Math.round(forecast.main.temp_min)}ºC</li>
-      </div>
-      );
-    }
+    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    let day = days[date.getDay()];
+    return `${day}`;
   }
 
-  function handleForecastResponse(response) {
-    setForecast(response.data);
-    setLoaded(true);
+  function temperature() {
+    let temperature = Math.round(props.data.main.temp);
+
+    return `${temperature}°C`;
   }
 
-  if (loaded && props.city === forecast.city.name) {
-    return (
-      <div className="forecastAPI">
-        <h3>Hourly temperature</h3>
-        <div className="forecast">
-          <div className="row weatherForecast" />{dispalyHourlyForecast()}</div>
-        <br/>
-        <h3>Daily temperature</h3>
-        <div className="forecast">
-          <div className="row weatherForecast" />{formatDailyForecast()}</div>
-      </div>
-    );
-  } else {
-    const apiKey = "2e83a4b7ba2b243a8588825e9765fe5a";
-    let url = `https://api.openweathermap.org/data/2.5/forecast?q=${props.city}&appid=${apiKey}&units=metric`;
-    axios.get(url).then(handleForecastResponse);
-
-    return null;
-  }
+  return (
+    <div className="col-2">
+      <li>{hours()}</li>
+      <li><WeatherIcon code={props.data.weather[0].icon} /></li>
+      <li>{temperature()}</li>
+    </div>
+  );
 }
 
+//  //⌛Hourly Forecast
+//    for (let index = 0; index < 6; index++) {
+//      return (
+//        <div class="col-2">
+//        <li class="weatherForecast">${formatLastUpdated(forecast.dt * 1000)}</li>
+//        <li><WeatherIcon code={props.data.weather[0].icon} /></li>
+//        <li class="weatherForecast">${Math.round(forecast.main.temp_max)}º/${Math.round(forecast.main.temp_min)}ºC</li>
+//      </div>
+//      );
+//    }
+//  }
 ////📆Daily Forecast
-//function formatDailyForecast(timestamp) {
-//  let forecastDay = new Date(timestamp);
-//  let weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-//  let weekDay = weekDays[forecastDay.getDay()];
-//  return `${weekDay}`;
-//}
-//
-//function displayDailyForecast(response) {
-//  let forecastElement = document.querySelector("#daily-forecast");
-//  forecastElement.innerHTML = null;
-//  let forecast = null;
-//
 //  for (let index = 0; index < 5; index++) {
-//    forecast = response.data.list[index * 8];
-//    forecastElement.innerHTML += ` 
-//    <div class="col-2">
-//      <li class="weatherForecast">${formatDayForecast(forecast.dt * 1000)}</li>
-//      <li><img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" width="50%"/></li>
+//    forecast = response.data.list[index * 8];  
+//    return (
+//      <div class="col-2">
+//      <li class="weatherForecast">${formatLastUpdated(forecast.dt * 1000)}</li>
+//      <li><WeatherIcon code={props.data.weather[0].icon} /></li>
 //      <li class="weatherForecast">${Math.round(forecast.main.temp_max)}º/${Math.round(forecast.main.temp_min)}ºC</li>
-//    </div>`;
+//    </div>
+//    );
 //  }
 //}

@@ -12,10 +12,11 @@
   max-width: 600px;
   border-radius: 10px;
 }
-.weatherForecast {
+
+.forecastAPI li {
+  text-align: center;
   font-size: 14px;
 }
-
 .forecast canvas {
-  
+  width: 40px;
 }
