@@ -24,27 +24,3 @@ export default function ForecastHour(props) {
     </div>
   );
 }
-
-//  //⌛Hourly Forecast
-//    for (let index = 0; index < 6; index++) {
-//      return (
-//        <div class="col-2">
-//        <li class="weatherForecast">${formatLastUpdated(forecast.dt * 1000)}</li>
-//        <li><WeatherIcon code={props.data.weather[0].icon} /></li>
-//        <li class="weatherForecast">${Math.round(forecast.main.temp_max)}º/${Math.round(forecast.main.temp_min)}ºC</li>
-//      </div>
-//      );
-//    }
-//  }
-////📆Daily Forecast
-//  for (let index = 0; index < 5; index++) {
-//    forecast = response.data.list[index * 8];  
-//    return (
-//      <div class="col-2">
-//      <li class="weatherForecast">${formatLastUpdated(forecast.dt * 1000)}</li>
-//      <li><WeatherIcon code={props.data.weather[0].icon} /></li>
-//      <li class="weatherForecast">${Math.round(forecast.main.temp_max)}º/${Math.round(forecast.main.temp_min)}ºC</li>
-//    </div>
-//    );
-//  }
-//}

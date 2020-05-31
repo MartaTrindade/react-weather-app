@@ -10,7 +10,7 @@ export default function Weather (props) {
     <div className="weather">
       <h2>
         <ul>
-          <li><i className="fas fa-map-marker-alt" />{" "}<span>{props.data.city}</span></li>
+          <li>{props.data.city}</li>
           <FormattedDate date={props.data.date} />
         </ul>
       </h2>
@@ -25,10 +25,10 @@ export default function Weather (props) {
           <div className="col-6">
             <ul>
               <li>
-                {/*<WeatherUnit celsius={props.data.temperature} /> */}
-                <span className="temperature">{Math.round(props.data.temperature)} </span>
-                <button type="submit" className="btn-units">ºC</button>|
-                <button type="submit" className="btn-units">ºF</button>
+                <WeatherUnit celsius={props.data.temperature} />
+                {/*<span className="temperature">{Math.round(props.data.temperature)} </span>*/}
+                {/*<button type="submit" className="btn-units">ºC</button>|*/}
+                {/*<button type="submit" className="btn-units">ºF</button>*/}
               </li>
               <li className="weatherDescription">{props.data.description}</li>
               <li className="weatherDetails">Humidity: {props.data.humidity}%</li>

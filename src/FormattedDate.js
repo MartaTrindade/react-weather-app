@@ -10,7 +10,15 @@ export default function FormattedDate(props) {
   
   //⏰Machine timestamp
   const [clock, setClock] = useState(new Date());
-  const clockDate = `${clock.getHours()}:${clock.getMinutes()}`;
+  //const clockDate = `${clock.getHours()}:${clock.getMinutes()}`;
+  let clockHours = clock.getHours();
+    if (clockHours < 10) {
+      clockHours = `0${clockHours}`;
+    }
+  let clockMinutes = clock.getMinutes();
+    if (clockMinutes < 10) {
+      clockMinutes = `0${clockMinutes}`;
+    }
   useEffect(() => {
     const intervalId = setInterval(() => {
       setClock(new Date());
@@ -32,7 +40,7 @@ export default function FormattedDate(props) {
 
     return (
       <div>
-        <li><span>{day}, {dateDay} {month} {year} {clockDate}</span></li>
+        <li><span>{day}, {dateDay} {month} {year} {clockHours}:{clockMinutes}</span></li>
         <li><span className="last-updated">Last updated: {hours}:{minutes}</span></li>
       </div>
     );
