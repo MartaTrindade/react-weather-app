@@ -28,3 +28,20 @@
 .weatherDetails {
   font-size: 12px;
 }
+
+.btn-units {
+  font-size: 20px;
+  background: #ffffff;
+  width: 30px;
+  padding: 4px;
+  margin: 4px auto;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+}
+.btn-units:hover {
+  background: #282c34;
+  color: #ffffff;
+}
+.inactive {
+  color: #61dafb;
+}
