@@ -1,11 +1,21 @@
 import React from 'react';
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
-import WeatherUnit from "./WeatherUnit";
 
 import "./Weather.css";
 
 export default function Weather (props) {
+  const unitLabel = props.data.unitSystem === "metric" ? 'C' : 'F';
+
+  function showCelsius(event) {
+    event.preventDefault();
+    props.onChangeUnit("metric");
+  }
+  function showFarenheit(event) {
+    event.preventDefault();
+    props.onChangeUnit("imperial");
+  }
+
   return (
     <div className="weather">
       <h2>
@@ -19,20 +29,19 @@ export default function Weather (props) {
           <div className="col-6">
             <ul className="currentMaxMin">
               <li><WeatherIcon code={props.data.icon} /></li>
-              <li>{props.data.maxTemperature}º/{props.data.minTemperature}ºC</li>
+              <li>{props.data.maxTemperature}°/{props.data.minTemperature}°{unitLabel}</li> {/*<--- SheCodes Unit converter*/}
             </ul>
           </div>
           <div className="col-6">
             <ul>
               <li>
-                <WeatherUnit celsius={props.data.temperature} />
-                {/*<span className="temperature">{Math.round(props.data.temperature)} </span>*/}
-                {/*<button type="submit" className="btn-units">ºC</button>|*/}
-                {/*<button type="submit" className="btn-units">ºF</button>*/}
+                <span className="temperature">{props.data.temperature}°{unitLabel}</span> {/*<--- Btn unit converter*/}
+                <button type="submit" className="btn-units" onClick={showCelsius}>°C</button>|{/*<--- Btn unit converter*/}
+                <button type="submit" className="btn-units" onClick={showFarenheit}> °F</button> {/*<--- Btn unit converter*/}
               </li>
               <li className="weatherDescription">{props.data.description}</li>
               <li className="weatherDetails">Humidity: {props.data.humidity}%</li>
-              <li className="weatherDetails">Wind: {props.data.wind} Km/h</li>
+              <li className="weatherDetails">Wind: {props.data.wind} {props.data.unitSystem === "metric" ? "Km/h" : "mph"}</li>
             </ul>
           </div>
         </div>

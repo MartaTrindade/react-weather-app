@@ -1,8 +1,9 @@
 import React from "react";
 import WeatherIcon from "./WeatherIcon";
 
-
 export default function ForecastHour(props) {
+  const unitLabel = props.data.unitSystem === "imperial" ? 'F' : 'C';
+
   function hours() {
     let date = new Date(props.data.dt * 1000);
     let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -12,8 +13,9 @@ export default function ForecastHour(props) {
 
   function temperature() {
     let temperature = Math.round(props.data.main.temp);
+    let unit = props.unitSystem;
 
-    return `${temperature}°C`;
+    return `${temperature}°${unitLabel}`;
   }
 
   return (
