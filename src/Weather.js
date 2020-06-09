@@ -29,15 +29,15 @@ export default function Weather (props) {
           <div className="col-6">
             <ul className="currentMaxMin">
               <li><WeatherIcon code={props.data.icon} /></li>
-              <li>{props.data.maxTemperature}°/{props.data.minTemperature}°{unitLabel}</li> {/*<--- SheCodes Unit converter*/}
+              <li>{props.data.maxTemperature}°/{props.data.minTemperature}°{unitLabel}</li>
             </ul>
           </div>
           <div className="col-6">
             <ul>
               <li>
-                <span className="temperature">{props.data.temperature}°{unitLabel}</span> {/*<--- Btn unit converter*/}
-                <button type="submit" className="btn-units" onClick={showCelsius}>°C</button>|{/*<--- Btn unit converter*/}
-                <button type="submit" className="btn-units" onClick={showFarenheit}> °F</button> {/*<--- Btn unit converter*/}
+                <span className="temperature">{props.data.temperature}°{unitLabel}</span>
+                <button type="submit" className="btn-units" onClick={showCelsius}>°C</button>|
+                <button type="submit" className="btn-units" onClick={showFarenheit}> °F</button>
               </li>
               <li className="weatherDescription">{props.data.description}</li>
               <li className="weatherDetails">Humidity: {props.data.humidity}%</li>
