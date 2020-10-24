@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
-import Location from "./Location";
+import Location from "./WeatherApp/Location";
 
 import './App.css';
 
