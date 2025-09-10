@@ -33,9 +33,14 @@ form {
 .btn-dark {
   border-radius: 4px;
   background: #282c34;
+  border-color: #343a40;
+  color: white;
 }
 .btn-light {
   border-radius: 4px;
+  color: #212529;
+  background-color: #f8f9fa;
+  border-color: #f8f9fa;
 }
 .last-updated {
   color: #61dafb;
